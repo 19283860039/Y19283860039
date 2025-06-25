@@ -1,8 +1,7 @@
-Open the "ultralytics-yolo11-main" file in PyCharm. In the terminal, run the command: `yolo detect train data="yaml file path" model=yolo12n.pt epochs=300 imgsz=640 batch=16 lr0=0.01 workers=8 patience=20 optimizer=SGD`. After the task finishes, the results are saved in the "runs/detect/train" path. Then, use the validation test set code, add the file paths as per lines 7, 8, and 10, and run it to generate a "predictions.txt" file.
-
-1. The "ultralytics-yolo11-main" file has been uploaded to Dropbox.
-2. The model weights file can be found in the Dropbox file or the provided GitHub link.
-3. The model accuracy file can be found in "Model accuracy.txt" or "model weights\results.csv".
-4. After opening "ultralytics-yolo11-main", the results in the "runs/detect/train" path can be viewed. If not found, check the results path in the run log after executing the code.
-5. The validation test set code is in the submitted "Validate test set code" file or the GitHub "Validate test set code" file.
-6. The "predictions.txt" file can be found in the Dropbox file or the provided GitHub link.
+1. Open the “ultralytics-main” file in PyCharm. Open the train.py file (the train.py code is also available on GitHub), specify the model path and training data path (the 12rgb-objdet.yaml in the file corresponds to the data path on line 12 of train.py), and then start running. The result save path will be displayed in the run box. Next, use the validation test set code on GitHub or the validation test set code submitted on Dropbox to add file paths on lines 6, 8, and 10 and run it, and finally generate the “predictions.txt” file.
+2. The “ultralytics-main” file has been uploaded to Dropbox.
+3. The model weight file can be found in the Dropbox file (model weights).
+4. The model accuracy file can be found in “ultralytics-main\runs\detect\train\results.csv”.
+5. The validation test set code is in the submitted “validation test set code” file or the GitHub “validation test set code” file.
+6. The “predictions.txt” file can be found in the Dropbox file or the provided GitHub link.
+7. The all_objdet file contains the training set, validation set, and test set. The 12rgb-objdet.yaml file needs to specify the paths for the training set, validation set, and test set.
