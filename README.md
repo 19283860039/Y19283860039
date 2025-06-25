@@ -1,12 +1,8 @@
 Open the “ultralytics-main” file in PyCharm. Open the train.py file (the train.py code is also available on GitHub), specify the model path and training data path (the 12rgb-objdet.yaml in the file corresponds to the data path on line 12 of train.py), and then start running. The result save path will be displayed in the run box. Next, use the validation test set code on GitHub or the validation test set code submitted on Dropbox to add file paths on lines 6, 8, and 10 and run it, and finally generate the “predictions.txt” file.
 
 
-Result save path
+Result save path (example)
 ![picture](https://github.com/user-attachments/assets/2fbfbef9-a154-4b54-b152-020fd86c8f5f)
-
-
-
-
 
 
 
