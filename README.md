@@ -1,14 +1,64 @@
-Open the “ultralytics-main” file in PyCharm. Open the train.py file (the train.py code is also available on GitHub), specify the model path and training data path (the 12rgb-objdet.yaml in the file corresponds to the data path on line 12 of train.py), and then start running. The result save path will be displayed in the run box. Next, use the validation test set code on GitHub or the validation test set code submitted on Dropbox to add file paths on lines 6, 8, and 10 and run it, and finally generate the “predictions.txt” file.
+This project utilizes the YOLO model to conduct training and prediction for object detection tasks. Here are the detailed steps:
 
+ Environment Preparation
 
-Result save path (example)
-![picture](https://github.com/user-attachments/assets/2fbfbef9-a154-4b54-b152-020fd86c8f5f)
+Before starting the training, ensure the following dependencies are installed:
+- Python 3.12.11
+- torch 2.7.1+cu118
+- torchvision 0.22.1+cu118
+- numpy 2.1.2
+- opencv-python 4.11.0.86
+- pip 25.1
+- timm 1.0.15
+- dill 0.4.0
+- psutil 7.0.0
+- PyCharm (or other Python development environments)
+- ultralytics 8.3.152
 
+Training the Model
 
+1. Open PyCharm and import the `ultralytics-main` project file.
 
-1. The “ultralytics-main” file has been uploaded to Dropbox.
-2. The model weight file can be found in the Dropbox file (model weights).
-3. The model accuracy file can be found in “ultralytics-main\runs\detect\train\results.csv”.
-4. The validation test set code is in the submitted “validation test set code” file or the GitHub “validation test set code” file.
-5. The “predictions.txt” file can be found in the Dropbox file or the provided GitHub link.
-6. The all_objdet file contains the training set, validation set, and test set. The 12rgb-objdet.yaml file needs to specify the paths for the training set, validation set, and test set.
+2. Edit the `train.py` file to specify the following parameters:
+   - Model path: `model = YOLO('ultralytics/cfg/models/12/yolo12m.yaml')`.
+   - Dataset path: In the `model.train()` function, replace `data='YAML file path'` with the actual path to the YAML file (the 12rgb-objdet.yaml), which should define the paths for the training, validation, and test sets.
+
+3. Configure the training parameters:
+   - `imgsz`: Set the image size to 640.
+   - `epochs`: Set the number of training epochs to 300.
+   - `batch`: Set the batch size to 32.
+   - `close_mosaic`: Set to 0 to disable mosaic data augmentation.
+   - `workers`: Set the number of worker processes to 8.
+   - `optimizer`: Choose SGD (Stochastic Gradient Descent) as the optimizer.
+   - `project`: Specify the project save path as `runs/train`.
+   - `name`: Specify the experiment name as `exp`.
+
+4. Run the `train.py` file to start the training process. The training results, including logs and model weight files, will be saved in the `runs/train/exp` directory (the exact path can be checked in the run box).
+
+Generating Predictions
+
+1. After training is complete, load the best model path in the predictions code:
+   `Model = YOLO('The best model path')`
+
+2. Use the trained model for prediction by specifying the path to the images to be predicted in `test_images_dir = 'The path to the best set image folder'`.
+
+3. The validation test set code can be obtained from GitHub or Dropbox. Edit the validation test set code by adding the corresponding file paths on lines 6, 8, and 10, then run the code.
+
+4. After running the validation test set code, a `predictions.txt` file will be generated, containing the model's prediction results for the test set.
+
+ File Structure Description
+
+- `ultralytics-main`: The main project folder.
+- `model weights`: The folder for storing model weight files.
+- `ultralytics-main/runs/detect/train/results.csv`: The file storing model training accuracy.
+- `validation test set code`: The validation test set code file.
+- `predictions.txt`: The file storing prediction results.
+- `all_objdet`: The folder containing the training set, validation set, and test set.
+
+ Notes
+
+- If you need to load pre-trained weights, uncomment `model.load('yolo12n.pt')` and replace `yolo12n.pt` with the actual pre-trained weight file path.
+- Ensure the YAML file correctly specifies the paths for the training, validation, and test sets to avoid data loading errors.
+- If you encounter memory insufficiency issues during the process, try reducing the value of the `batch` parameter.
+
+By following the above steps, you can successfully train the YOLO model and generate prediction results for object detection tasks. If you encounter any problems during the process, please refer to the relevant documentation or contact the project provider for support.
