@@ -8,7 +8,7 @@ if __name__ == '__main__':
     torch.cuda.empty_cache()
 
     model = YOLO('ultralytics/cfg/models/12/yolo12m.yaml')
-    # model.load('yolo11n.pt') # loading pretrain weights
+    # model.load('yolo12n.pt') # loading pretrain weights
     model.train(data='YAML file path',
                 cache=False,
                 imgsz=640,
