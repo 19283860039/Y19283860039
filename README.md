@@ -15,6 +15,9 @@ Before starting the training, ensure the following dependencies are installed:
 - PyCharm (or other Python development environments)
 - ultralytics 8.3.152
 
+I integrated multiple files into a new dataset folder. It includes a training set (train), a validation set (val), and a unified tree class file (class_all, uploaded to GitHub). Under both the training and validation directories, I created images and labels folders. The corresponding images and labels from files like 0_RGB_FullyLabeled, 12_RGB_ObjDet_640_fL, 34_RGB_ObjDet_640_pL, and 34_RGB_ObjDet_640_pL_b were placed into these folders. This organized dataset facilitates subsequent model training and validation.
+
+
 Training the Model
 
 1. Open PyCharm and import the `ultralytics-main` project file.
